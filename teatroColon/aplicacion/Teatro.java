@@ -13,6 +13,7 @@ import java.util.*;
 public class Teatro{
     public static final int MAXIMO = 500;
     private static Teatro teatro = null;
+    private int cont=1;
     public static Teatro demeTeatro() {
         if (teatro==null){
             teatro=new Teatro();
@@ -61,23 +62,37 @@ public class Teatro{
     }
 
     public void accion(){
-        for(int i=0;i<elementos.size();i++){
-            if(i<2){
+        if(cont%3!=0){
+            for(int i=0;i<elementos.size();i++){
                 elementos.get(i).actue();
-            }else{
-                elementos.get(i).corte();
-            }   
+            }
+        }else{
+            for(int i=0;i<elementos.size();i++){
+                if(i<2){
+                    elementos.get(i).actue();
+                }else{
+                    elementos.get(i).corte();
+                }   
+            }
         }
+        cont++;
     }
 
     public void corten(){
-        for(int i=0;i<elementos.size();i++){
-            if(i<2){
+        if(cont%3!=0){
+            for(int i=0;i<elementos.size();i++){
                 elementos.get(i).corte();
-            }else{
-                elementos.get(i).actue();
-            }   
+            }
+        }else{
+            for(int i=0;i<elementos.size();i++){
+                if(i<2){
+                    elementos.get(i).corte();
+                }else{
+                    elementos.get(i).actue();
+                }   
+            }
         }
+        cont++;
     }   
 
     public void decidan(){
